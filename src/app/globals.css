@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --bg-obsidian: #08080a;
+  --bg-surface: #111115;
+  --bg-elevated: #17171d;
+  --ink-primary: #f5f5f7;
+  --ink-secondary: #a1a1aa;
+  --ink-muted: #6b6b76;
+  --accent-ember: #ff5e1a;
+  --accent-amber: #f59e0b;
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+}
+
+@theme inline {
+  --color-obsidian: var(--bg-obsidian);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-ink: var(--ink-primary);
+  --color-ember: var(--accent-ember);
+  --color-amber-studio: var(--accent-amber);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), var(--font-jakarta), sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--ink-primary);
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(255, 94, 26, 0.35);
+  color: #ffffff;
+}
+
+/* Editorial hairline border */
+.hairline {
+  border: 1px solid var(--border-hairline);
+}
+
+.hairline-strong {
+  border: 1px solid var(--border-strong);
+}
+
+/* Architectural coordinate grid */
+.studio-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Subtle fine noise grain for tactile studio warmth */
+.studio-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");
+}
+
+/* Animated equalizer bars for audio previews */
+@keyframes eqPulse {
+  0%, 100% {
+    transform: scaleY(0.28);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.eq-bar {
+  transform-origin: bottom;
+  animation: eqPulse 0.9s ease-in-out infinite;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23232a;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5e1a;
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#0D0D12" />
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#262630" stroke-width="2" />
+  <circle cx="51" cy="13" r="4.5" fill="#FF5E1A" />
+  <text
+    x="31"
+    y="41"
+    text-anchor="middle"
+    fill="#F5F5F7"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="25"
+    font-weight="800"
+    letter-spacing="-1"
+  >
+    PT
+  </text>
+</svg>
