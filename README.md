@@ -2,6 +2,9 @@
 
 Meu site pessoal e vitrine de projetos, feito em **Next.js**, **TypeScript** e **Tailwind CSS**, com suporte completo a **PT-BR** e **EN** (também aceita `?lang=en` ou `?lang=pt` direto na URL).
 
+- **No ar:** https://prothotype-portfolio.vercel.app
+- **Laboratório interativo:** https://prothotype-portfolio.vercel.app/lab
+
 ## Duas visões no mesmo projeto
 
 Organizei o portfólio em duas rotas porque nem sempre quem abre está procurando a mesma coisa:
