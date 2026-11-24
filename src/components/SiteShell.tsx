@@ -53,42 +53,30 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           {/* Center Tactile Dual-Model Switcher */}
           <nav
             aria-label={locale === "pt" ? "Modelos do portfólio" : "Portfolio modes"}
-            className="flex items-center p-1 rounded-full bg-[#121217] border border-white/[0.08]"
+            className="flex items-center gap-1 p-1 rounded-full bg-[#121217] border border-white/[0.08]"
           >
             <Link
               href="/"
-              className={`relative flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                !isLab ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+              className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                !isLab
+                  ? "bg-[#FF5E1A] text-white shadow-[0_0_20px_rgba(255,94,26,0.4)]"
+                  : "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.04]"
               }`}
             >
-              {!isLab && (
-                <motion.span
-                  layoutId="portfolio-mode-pill"
-                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  className="absolute inset-0 rounded-full bg-[#FF5E1A] shadow-[0_0_20px_rgba(255,94,26,0.4)]"
-                />
-              )}
-              <Briefcase className="w-3.5 h-3.5 relative z-10" />
-              <span className="relative z-10">
-                {locale === "pt" ? "Engenharia" : "Engineering"}
-              </span>
+              <Briefcase className="w-3.5 h-3.5 shrink-0" />
+              <span>{locale === "pt" ? "Engenharia" : "Engineering"}</span>
             </Link>
 
             <Link
               href="/lab"
-              className={`relative flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                isLab ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+              className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                isLab
+                  ? "bg-[#FF5E1A] text-white shadow-[0_0_20px_rgba(255,94,26,0.4)]"
+                  : "text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.04]"
               }`}
             >
-              {isLab && (
-                <motion.span
-                  layoutId="portfolio-mode-pill"
-                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  className="absolute inset-0 rounded-full bg-[#FF5E1A] shadow-[0_0_20px_rgba(255,94,26,0.4)]"
-                />
-              )}
-              <FlaskConical className="w-3.5 h-3.5 relative z-10" />
-              <span className="relative z-10">PROTHOTYPE Lab</span>
+              <FlaskConical className="w-3.5 h-3.5 shrink-0" />
+              <span>PROTHOTYPE Lab</span>
             </Link>
           </nav>
 

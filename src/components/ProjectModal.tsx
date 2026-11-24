@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { GithubIcon as Github } from "@/components/BrandIcons";
+import { RichText } from "@/components/RichText";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function ProjectModal() {
@@ -143,7 +144,7 @@ export function ProjectModal() {
                 </div>
 
                 <p className="text-base sm:text-lg text-zinc-200 leading-relaxed">
-                  {t(activeProject.summary)}
+                  <RichText text={t(activeProject.summary)} />
                 </p>
 
                 {/* Metrics row */}
@@ -208,7 +209,7 @@ export function ProjectModal() {
                         : "Engineering Transparency · AI-Agent Orchestration"}
                     </div>
                     <p className="text-sm text-zinc-200 leading-relaxed">
-                      {t(activeProject.aiNote)}
+                      <RichText text={t(activeProject.aiNote)} />
                     </p>
                   </div>
                 </div>
@@ -267,7 +268,7 @@ export function ProjectModal() {
                     {locale === "pt" ? "01 · O Problema" : "01 · The Problem"}
                   </div>
                   <p className="text-sm text-zinc-300 leading-relaxed">
-                    {t(activeProject.problem)}
+                    <RichText text={t(activeProject.problem)} />
                   </p>
                 </div>
                 <div className="rounded-2xl bg-[#131319] hairline p-5 space-y-2">
@@ -277,7 +278,7 @@ export function ProjectModal() {
                       : "02 · Solution & Architecture"}
                   </div>
                   <p className="text-sm text-zinc-300 leading-relaxed">
-                    {t(activeProject.solution)}
+                    <RichText text={t(activeProject.solution)} />
                   </p>
                 </div>
               </div>
@@ -298,7 +299,7 @@ export function ProjectModal() {
                         {node.layer}
                       </div>
                       <p className="text-xs text-zinc-400 leading-relaxed">
-                        {t(node.detail)}
+                        <RichText text={t(node.detail)} />
                       </p>
                     </div>
                   ))}
@@ -319,7 +320,9 @@ export function ProjectModal() {
                       className="flex items-start gap-2.5 text-sm text-zinc-300 leading-relaxed"
                     >
                       <CheckCircle2 className="w-4 h-4 text-[#FF5E1A] shrink-0 mt-0.5" />
-                      <span>{t(item)}</span>
+                      <span>
+                        <RichText text={t(item)} />
+                      </span>
                     </li>
                   ))}
                 </ul>

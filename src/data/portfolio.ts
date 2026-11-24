@@ -183,7 +183,7 @@ export const PROJECTS: ProjectItem[] = [
       "Fly.io",
     ],
     metrics: [
-      { value: "4 Crates", label: { pt: "Workspace Rust nativo", en: "Native Rust crates" } },
+      { value: "4 Crates", label: { pt: "Crates Rust", en: "Rust crates" } },
       { value: "~14 ms", label: { pt: "Latência região GRU", en: "GRU region latency" } },
       { value: "Web + Win", label: { pt: "Deploy simultâneo", en: "Dual deployment" } },
     ],

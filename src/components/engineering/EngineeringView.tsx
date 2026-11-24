@@ -16,6 +16,7 @@ import {
   Briefcase,
   Check,
   Copy,
+  Download,
   FlaskConical,
   GraduationCap,
   Layers,
@@ -173,11 +174,20 @@ export function EngineeringView() {
                 <FlaskConical className="w-4 h-4 text-amber-400" />
                 <span>
                   {locale === "pt"
-                    ? "Ver Laboratório Interativo (PROTHOTYPE)"
-                    : "Enter Interactive Lab (PROTHOTYPE)"}
+                    ? "Laboratório (PROTHOTYPE)"
+                    : "Interactive Lab (PROTHOTYPE)"}
                 </span>
                 <ArrowRight className="w-4 h-4 text-zinc-400" />
               </Link>
+
+              <a
+                href="/Pedro-Carlos-Teixeira-Neto-Curriculo.pdf"
+                download="Pedro-Carlos-Teixeira-Neto-Curriculo.pdf"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/[0.1] text-zinc-200 hover:text-white text-sm font-medium transition-all"
+              >
+                <Download className="w-4 h-4 text-[#FF5E1A]" />
+                <span>{locale === "pt" ? "Currículo PDF" : "Resume PDF"}</span>
+              </a>
             </div>
 
             {/* Direct Contact Strip */}
@@ -358,12 +368,10 @@ export function EngineeringView() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {visibleProjects.map((project, idx) => (
             <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.45, delay: idx * 0.06 }}
+              key={`${filter}-${project.id}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.28, delay: idx * 0.04 }}
             >
               <SpotlightCard
                 spotlightColor={`${project.accentHex}22`}
@@ -467,8 +475,8 @@ export function EngineeringView() {
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                   </button>
 
-                  <div className="flex items-center gap-2">
-                    {project.links.slice(0, 2).map((link) => (
+                  <div className="flex flex-wrap items-center gap-2">
+                    {project.links.map((link) => (
                       <a
                         key={link.url}
                         href={link.url}
@@ -742,6 +750,14 @@ export function EngineeringView() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="/Pedro-Carlos-Teixeira-Neto-Curriculo.pdf"
+              download="Pedro-Carlos-Teixeira-Neto-Curriculo.pdf"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF5E1A] hover:bg-[#ff7338] text-sm font-semibold text-white transition-colors shadow-[0_0_24px_rgba(255,94,26,0.3)]"
+            >
+              <Download className="w-4 h-4" />
+              <span>{locale === "pt" ? "Baixar Currículo (PDF)" : "Download Resume (PDF)"}</span>
+            </a>
             <button
               type="button"
               onClick={handleCopyEmail}

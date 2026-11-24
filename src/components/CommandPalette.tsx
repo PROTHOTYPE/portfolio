@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Briefcase,
   Copy,
+  Download,
   FlaskConical,
   FolderCode,
   Globe,
@@ -84,6 +85,21 @@ export function CommandPalette() {
         icon: <FolderCode className="w-4 h-4 text-zinc-300" />,
         run: () => openProject(project.id),
       })),
+      {
+        id: "download-cv",
+        group: isPt ? "Contato & Links" : "Contact & Links",
+        label: isPt
+          ? "Baixar Currículo (PDF)"
+          : "Download Resume (PDF)",
+        hint: "PDF",
+        icon: <Download className="w-4 h-4 text-[#FF5E1A]" />,
+        run: () => {
+          const a = document.createElement("a");
+          a.href = "/Pedro-Carlos-Teixeira-Neto-Curriculo.pdf";
+          a.download = "Pedro-Carlos-Teixeira-Neto-Curriculo.pdf";
+          a.click();
+        },
+      },
       {
         id: "copy-email",
         group: isPt ? "Contato & Links" : "Contact & Links",

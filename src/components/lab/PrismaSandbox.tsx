@@ -194,39 +194,46 @@ export function PrismaSandbox() {
                   : "SMEC Org Chart (select)"}
               </div>
               <div className="space-y-1.5">
-                {SECTORS.map((s, idx) => (
-                  <button
-                    key={s.code}
-                    type="button"
-                    onClick={() => {
-                      setSelectedSector(idx);
-                      setPdfCompiled(false);
-                    }}
-                    className={`w-full text-left px-3 py-2 rounded-xl border transition-all cursor-pointer ${
-                      selectedSector === idx
-                        ? "bg-blue-700 text-white border-blue-800 shadow-md"
-                        : "bg-white/80 hover:bg-white text-slate-700 border-slate-200/80"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between text-xs font-semibold">
-                      <span>{s.code}</span>
-                      <span
-                        className={`font-mono text-[10px] ${
-                          selectedSector === idx ? "text-amber-300" : "text-blue-700"
-                        }`}
-                      >
-                        {s.done} OK
-                      </span>
-                    </div>
-                    <div
-                      className={`text-[11px] truncate ${
-                        selectedSector === idx ? "text-blue-100" : "text-slate-500"
+                {SECTORS.map((s, idx) => {
+                  const isActive = selectedSector === idx;
+                  return (
+                    <button
+                      key={s.code}
+                      type="button"
+                      onClick={() => {
+                        setSelectedSector(idx);
+                        setPdfCompiled(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 rounded-xl border transition-colors duration-150 cursor-pointer ${
+                        isActive
+                          ? "bg-[#1D4ED8] text-white border-[#1E40AF] shadow-md"
+                          : "bg-white text-slate-900 border-slate-200 hover:bg-slate-50"
                       }`}
                     >
-                      {s.name}
-                    </div>
-                  </button>
-                ))}
+                      <div className="flex items-center justify-between text-xs font-semibold">
+                        <span className={isActive ? "text-white" : "text-slate-900"}>
+                          {s.code}
+                        </span>
+                        <span
+                          className={`font-mono text-[10px] px-1.5 py-0.5 rounded-md ${
+                            isActive
+                              ? "bg-white/15 text-amber-200"
+                              : "bg-blue-50 text-blue-700"
+                          }`}
+                        >
+                          {s.done} OK
+                        </span>
+                      </div>
+                      <div
+                        className={`text-[11px] truncate mt-0.5 ${
+                          isActive ? "text-blue-100" : "text-slate-600"
+                        }`}
+                      >
+                        {s.name}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 

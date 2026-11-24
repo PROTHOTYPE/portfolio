@@ -21,6 +21,7 @@ import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/Bra
 import { PROFILE } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import { SpotlightCard } from "@/components/SpotlightCard";
+import { RichText } from "@/components/RichText";
 import { CafofoSandbox } from "@/components/lab/CafofoSandbox";
 import { DynamicIslandSandbox } from "@/components/lab/DynamicIslandSandbox";
 import { PrismaSandbox } from "@/components/lab/PrismaSandbox";
@@ -339,7 +340,7 @@ export function LabView() {
                   {t(pillar.title)}
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  {t(pillar.body)}
+                  <RichText text={t(pillar.body)} />
                 </p>
               </SpotlightCard>
             );
